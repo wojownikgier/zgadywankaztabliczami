@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.WeakHashMap;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -42,17 +39,45 @@ public class Main {
         for (int i = 0; i < listaLiczbWpisanych.size(); i++) {
             System.out.println(listaLiczbWpisanych.get(i));
         }
-        //losowe liczby bez powtorzeń
-        ArrayList<Integer> listaliczblosowychbezpotworzen = new ArrayList<>();
+
+        //losowanie liczb bez powtórzeń
+        ArrayList<Integer>listaLosowychBezPowtorzen =new ArrayList<>();
         for (int i = 0; i < 6; i++) {
-            int liczba =(int)(Math.random()*100+1);
-            while (listaliczblosowychbezpotworzen.contains(liczba)){
-                liczba =(int)(Math.random()*100+1);
+            int liczba = (int)(Math.random()*100+1);
+            while(listaLosowychBezPowtorzen.contains(liczba)){
+                liczba= (int)(Math.random()*100+1);
             }
-            listaliczblosowychbezpotworzen.add(liczba);
+            listaLosowychBezPowtorzen.add(liczba);
         }
-        //wypisowanie
-        System.out.println("wylosowanie bez powtórzen");
-        System.out.println(listaliczblosowychbezpotworzen);
+        //wypisywanie
+        System.out.println("wylosowane bez powtorzeń");
+        System.out.println(listaLosowychBezPowtorzen);
+//losowanie bez powtorzen do zbioru
+        HashSet<Integer> zbiorLiczbLosowych = new HashSet<>();
+        while (zbiorLiczbLosowych.size()<6){
+            int liczba = (int)(Math.random()*100+1);
+            zbiorLiczbLosowych.add(liczba);
+        }
+        System.out.println(zbiorLiczbLosowych);
+        //lista
+        /*
+        elementy mogą sie powtarzać
+        elementy są indeksowane
+         */
+
+        //zbior zazwyczaj
+        /*
+        elementy unikatowe
+        elementy nie są indeksowane
+         */
+
+        LinkedList<Integer> trafione =new LinkedList<>();
+        //trafiione to elementy które występują w wylosowanych i wpisanych
+        for (Integer wpisana: listaLiczbWpisanych) {
+            if(zbiorLiczbLosowych.contains(wpisana)){
+                trafione.add(wpisana);
+            }
+        }
+        System.out.println("Trafione:"+trafione);
     }
 }
