@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.WeakHashMap;
 
 public class Main {
     public static void main(String[] args) {
@@ -41,9 +42,17 @@ public class Main {
         for (int i = 0; i < listaLiczbWpisanych.size(); i++) {
             System.out.println(listaLiczbWpisanych.get(i));
         }
-
-
-
-
+        //losowe liczby bez powtorzeń
+        ArrayList<Integer> listaliczblosowychbezpotworzen = new ArrayList<>();
+        for (int i = 0; i < 6; i++) {
+            int liczba =(int)(Math.random()*100+1);
+            while (listaliczblosowychbezpotworzen.contains(liczba)){
+                liczba =(int)(Math.random()*100+1);
+            }
+            listaliczblosowychbezpotworzen.add(liczba);
+        }
+        //wypisowanie
+        System.out.println("wylosowanie bez powtórzen");
+        System.out.println(listaliczblosowychbezpotworzen);
     }
 }
