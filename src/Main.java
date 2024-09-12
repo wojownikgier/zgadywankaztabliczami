@@ -136,4 +136,5 @@ public class Main {
         wypiszKolekcję(trafione);
     }
 }
-}
+}//jebaqc fałdka
+
